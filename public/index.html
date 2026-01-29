@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Επιλογή Ομαδικού Έργου - ΠΛΗΠΡΟ (Ranked Voting)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ψηφοφορία Ομάδας</h1>
+        <p>Ως ομάδα 5 ατόμων, στόχος είναι να βρούμε το project που συγκεντρώνει τη μέγιστη αποδοχή. <br>Παρακαλώ ιεραρχήστε τις επιλογές σας.</p>
+        
+        <form id="projectForm">
+            <div class="form-group">
+                <label for="name">Ονοματεπώνυμο:</label>
+                <input type="text" id="name" name="name" required placeholder="Το όνομά σας">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-group">
+                <label for="choice1">🥇 1η Επιλογή (3 Βαθμοί - Το αγαπημένο):</label>
+                <select id="choice1" name="choice1" class="project-select" required>
+                    <option value="" disabled selected>Επιλέξτε...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="choice2">🥈 2η Επιλογή (2 Βαθμοί - Καλή εναλλακτική):</label>
+                <select id="choice2" name="choice2" class="project-select" required>
+                    <option value="" disabled selected>Επιλέξτε...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="choice3">🥉 3η Επιλογή (1 Βαθμός - Αποδεκτή λύση):</label>
+                <select id="choice3" name="choice3" class="project-select" required>
+                    <option value="" disabled selected>Επιλέξτε...</option>
+                </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-group veto-group">
+                <label for="veto">⛔ Veto (Ποιο project να αποφύγουμε):</label>
+                <select id="veto" name="veto" class="project-select">
+                    <option value="" selected>Κανένα (Όλα ok)</option>
+                </select>
+                <small>Επιλέξτε μόνο αν υπάρχει κάποιο θέμα που πραγματικά δεν μπορείτε να υποστηρίξετε.</small>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-group">
+                <label>🛠️ Τεχνική Αυτοπεποίθηση (Coding Skills):</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="confidence" value="1" required> 1 (Χαμηλή)</label>
+                    <label><input type="radio" name="confidence" value="2"> 2</label>
+                    <label><input type="radio" name="confidence" value="3"> 3 (Μέτρια)</label>
+                    <label><input type="radio" name="confidence" value="4"> 4</label>
+                    <label><input type="radio" name="confidence" value="5"> 5 (Υψηλή)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Σχόλια / Ρόλος που προτιμάτε:</label>
+                <textarea id="comments" name="comments" rows="3" placeholder="π.χ. Προτιμώ Backend, ή Θέλω να γράψω την τεκμηρίωση..."></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Καταχώρηση Ψήφου</button>
+        </form>
+
+        <div id="message" class="hidden"></div>
+    </div>
+
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

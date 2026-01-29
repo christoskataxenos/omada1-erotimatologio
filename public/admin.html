@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Αποτελέσματα</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container { max-width: 900px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #2c3e50; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; }
+        .badge-1 { background-color: #ffd700; color: #000; } /* Gold */
+        .badge-2 { background-color: #c0c0c0; color: #000; } /* Silver */
+        .badge-3 { background-color: #cd7f32; color: #fff; } /* Bronze */
+        .veto-flag { color: #e74c3c; font-weight: bold; }
+        .refresh-btn { background-color: #34495e; width: auto; display: inline-block; padding: 0.5rem 1rem; margin-bottom: 1rem;}
+        .stat-box { background: #e8f6f3; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border-left: 5px solid #1abc9c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>📊 Αποτελέσματα Ψηφοφορίας</h1>
+            <button onclick="loadData()" class="refresh-btn">Ανανέωση</button>
+        </div>
+
+        <!-- Στατιστικά Ομάδας -->
+        <div class="stat-box">
+            <h3>Team Stats</h3>
+            <p>Σύνολο Ψήφων: <strong id="totalVotes">0</strong></p>
+            <p>Μέσος Όρος Τεχνικής Αυτοπεποίθησης (1-5): <strong id="avgConfidence">-</strong></p>
+        </div>
+
+        <!-- Πίνακας Κατάταξης -->
+        <h2>🏆 Τελική Κατάταξη (Scoreboard)</h2>
+        <p><small>* Υπολογισμός: 1η επιλογή = 3π, 2η = 2π, 3η = 1π.</small></p>
+        <div style="overflow-x: auto;">
+            <table id="rankingTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Project</th>
+                        <th>Πόντοι</th>
+                        <th>Vetos</th>
+                        <th>Λεπτομέρειες</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="5">Φόρτωση...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Αναλυτικά Δεδομένα -->
+        <h2>📝 Αναλυτικές Ψήφοι (Raw Data)</h2>
+        <div style="overflow-x: auto;">
+            <table id="rawTable">
+                <thead>
+                    <tr>
+                        <th>Όνομα</th>
+                        <th>1η Επιλογή</th>
+                        <th>2η Επιλογή</th>
+                        <th>3η Επιλογή</th>
+                        <th>Veto</th>
+                        <th>Skill</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
