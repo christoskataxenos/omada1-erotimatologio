@@ -43,6 +43,7 @@ function renderRawTable(votes) {
             <td>${v.choices.third}</td>
             <td style="color: ${v.veto ? '#e74c3c' : '#ccc'}">${v.veto || '-'}</td>
             <td>${v.confidence}</td>
+            <td><small>${v.comments || '-'}</small></td>
         `;
         tbody.appendChild(tr);
     });
